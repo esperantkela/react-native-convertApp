@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 
   workspace: {
     height: 450,
-    backgroundColor: "red",
+    alignItems: "center",
     justifyContent: "space-evenly",
   },
 });

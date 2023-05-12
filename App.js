@@ -1,6 +1,7 @@
 import { styles } from "./app.style";
-import { ImageBackground, View } from "react-native";
+import { ImageBackground, View, Text } from "react-native";
 import hotBg from "./assets/hot.png";
+import { InputTemperature } from "./components/InputTemperature";
 export default function App() {
   return (
     <ImageBackground source={hotBg} style={styles.container}>
@@ -9,7 +10,7 @@ export default function App() {
           <Text>Température</Text>
         </View>
         <View>
-          <Text>Input</Text>
+          <InputTemperature />
         </View>
         <View>
           <Text>Button</Text>
