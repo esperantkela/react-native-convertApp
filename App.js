@@ -6,16 +6,31 @@ import { TemperatureDisplay } from "./components/TemperatureDisplay/TemperatureD
 import { useState } from "react";
 import { DEFAULT_TEMEPERATURE } from "./constant";
 import { DEFAULT_UNIT } from "./constant";
+import {
+  getOppositUnit,
+  convertTemperatureTo,
+} from "./services/temperature-service";
+
 export default function App() {
   const [inputValue, setInputValue] = useState(DEFAULT_TEMEPERATURE);
   const [currentUnit, setCurrentUnit] = useState(DEFAULT_UNIT);
-  console.log(inputValue);
+  const oppositUnit = getOppositUnit(currentUnit);
+
+  const getConvertedTemperature = () => {
+    const valueAsFloat = Number.parseFloat(inputValue);
+    return isNaN(valueAsFloat)
+      ? ""
+      : convertTemperatureTo(oppositUnit, valueAsFloat).toFixed(1);
+  };
   const onChangeText = (value) => {};
 
   return (
     <ImageBackground source={hotBg} style={styles.container}>
       <View style={styles.workspace}>
-        <TemperatureDisplay value={inputValue} unit={currentUnit} />
+        <TemperatureDisplay
+          value={getConvertedTemperature}
+          unit={oppositUnit}
+        />
         <InputTemperature
           onChangeText={setInputValue}
           defaulValue={DEFAULT_TEMEPERATURE}
