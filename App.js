@@ -10,6 +10,7 @@ import {
   getOppositUnit,
   convertTemperatureTo,
 } from "./services/temperature-service";
+import { ButtonConvert } from "./ButtonConvert/ButtonConvert";
 
 export default function App() {
   const [inputValue, setInputValue] = useState(DEFAULT_TEMEPERATURE);
@@ -33,10 +34,14 @@ export default function App() {
         />
         <InputTemperature
           onChangeText={setInputValue}
+          unit={currentUnit}
           defaulValue={DEFAULT_TEMEPERATURE}
         />
         <View>
-          <Text>Button</Text>
+          <ButtonConvert
+            onPress={() => setCurrentUnit(oppositUnit)}
+            unit={currentUnit}
+          />
         </View>
       </View>
     </ImageBackground>
