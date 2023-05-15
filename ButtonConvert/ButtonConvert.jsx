@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity } from "react-native/types";
+import { Text, TouchableOpacity } from "react-native/";
 import { styles } from "./ButtonConvert.style";
 
 export function ButtonConvert({ onPress, unit }) {
